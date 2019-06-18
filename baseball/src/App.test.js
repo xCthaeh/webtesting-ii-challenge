@@ -33,5 +33,15 @@ describe("The baseball app", () => {
 
     expect(fouls).toHaveTextContent(/1 Fouls/i);
   });
-  
+
+  it("has a ball button that logs balls", () => {
+    const { getByText, getByTestId } = render(<App />);
+
+    const button = getByText("Ball");
+
+    fireEvent.click(button);
+    const balls = getByTestId("Balls");
+
+    expect(balls).toHaveTextContent(/1 Balls/i);
+  });
 });
