@@ -14,5 +14,11 @@ describe("The Display component", () => {
     const component = render(<Display strikes={2} balls={1} fouls={2} />);
     const button = component.getByTestId("Balls");
     expect(button).toHaveTextContent(/1 Balls/i);
+
+    it("displays strikes", () => {
+      const component = render(<Display strikes={2} balls={1} fouls={2} />);
+      const button = component.getByTestId("Strikes");
+      expect(button).toHaveTextContent(/2 Strikes/i);
+    });
   });
 });
