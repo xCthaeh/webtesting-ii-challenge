@@ -27,4 +27,10 @@ describe("The Dash component", () => {
     const button = component.getByTestId("Hit");
     expect(button).toHaveTextContent(/Hit/i);
   });
+
+  it("contains a ball button", () => {
+    const component = render(<Dash />);
+    const button = component.getByTestId("Ball");
+    expect(button).toHaveTextContent(/Ball/i);
+  });
 });
