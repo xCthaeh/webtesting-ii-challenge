@@ -15,4 +15,10 @@ describe("The Dash component", () => {
     const button = component.getByTestId("Strike");
     expect(button).toHaveTextContent(/Strike/i);
   });
+
+  it("contains a foul button", () => {
+    const component = render(<Dash />);
+    const button = component.getByTestId("Foul");
+    expect(button).toHaveTextContent(/Foul/i);
+  });
 });
