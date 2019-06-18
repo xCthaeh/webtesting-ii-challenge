@@ -22,4 +22,16 @@ describe("The baseball app", () => {
       expect(strikes).toHaveTextContent(/1 Strikes/i);
     });
   });
+
+  it("has a foul button that logs fouls", () => {
+    const { getByText, getByTestId } = render(<App />);
+
+    const button = getByText("Foul");
+
+    fireEvent.click(button);
+    const fouls = getByTestId("Fouls");
+
+    expect(fouls).toHaveTextContent(/1 Fouls/i);
+  });
+  
 });
