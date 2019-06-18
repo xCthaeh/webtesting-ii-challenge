@@ -35,7 +35,14 @@ class App extends Component {
     }
   };
 
-
+  callFoul = e => {
+    e.preventDefault();
+    const fouls = this.state.fouls + 1;
+    this.setState({
+      ...this.state,
+      fouls: fouls
+    });
+  };
 
   render() {
     return (
@@ -45,6 +52,7 @@ class App extends Component {
           {...this.state}
           callStrike={this.callStrike}
           callBall={this.callBall}
+          callFoul={this.callFoul}
         />
       </div>
     );
