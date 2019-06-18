@@ -2,25 +2,25 @@ import React, { Component } from "react";
 import "./App.css";
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+  constructor() {
+    super();
+    this.state = {
+      strikes: 0,
+      balls: 0,
+      fouls: 0,
+      hit: false,
+      out: false
+    };
   }
-}
+  
+  callStrike = e => {
+    e.preventDefault();
+    const strikes = this.state.strikes + 1;
+    this.setState({
+      ...this.state,
+      strikes: strikes
+    });
+  };
+
 
 export default App;
