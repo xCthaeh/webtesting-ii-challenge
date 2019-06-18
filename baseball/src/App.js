@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import "./App.css";
+import Display from "./components/display/Display";
+import Dashboard from "./components/dashboard/Dash";
 
 class App extends Component {
   constructor() {
@@ -12,7 +13,7 @@ class App extends Component {
       out: false
     };
   }
-  
+
   callStrike = e => {
     e.preventDefault();
     const strikes = this.state.strikes + 1;
@@ -22,5 +23,32 @@ class App extends Component {
     });
   };
 
+  callBall = e => {
+    e.preventDefault();
+    if (this.state.balls === 3) {
+      this.out();
+    } else {
+      let balls = this.state.balls + 1;
+      this.setState({
+        balls: balls
+      });
+    }
+  };
+
+
+
+  render() {
+    return (
+      <div className="App">
+        <Display {...this.state} />
+        <Dashboard
+          {...this.state}
+          callStrike={this.callStrike}
+          callBall={this.callBall}
+        />
+      </div>
+    );
+  }
+}
 
 export default App;
