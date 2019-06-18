@@ -52,6 +52,15 @@ class App extends Component {
     });
   };
 
+  hit = e => {
+    e.preventDefault();
+    this.setState({
+      strikes: 0,
+      balls: 0,
+      fouls: 0
+    });
+  };
+
   render() {
     return (
       <div className="App">
@@ -62,6 +71,7 @@ class App extends Component {
           callBall={this.callBall}
           callFoul={this.callFoul}
           out={this.out}
+          hit={this.hit}
         />
       </div>
     );
