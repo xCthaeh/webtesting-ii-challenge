@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Display from "./components/display/Display";
-import Dashboard from "./components/dashboard/Dash";
+import Dash from "./components/dashboard/Dash";
 
 class App extends Component {
   constructor() {
@@ -65,7 +65,7 @@ class App extends Component {
     return (
       <div className="App">
         <Display {...this.state} />
-        <Dashboard
+        <Dash
           {...this.state}
           callStrike={this.callStrike}
           callBall={this.callBall}
