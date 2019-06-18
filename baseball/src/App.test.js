@@ -44,4 +44,26 @@ describe("The baseball app", () => {
 
     expect(balls).toHaveTextContent(/1 Balls/i);
   });
+
+  it("has a hit button that resets all counts", () => {
+    const { getByText, getByTestId } = render(<App />);
+
+    const strikeButton = getByText("Strike");
+    const ballButton = getByText("Ball");
+    const foulButton = getByText("Foul");
+    const button = getByText("Hit");
+
+    fireEvent.click(ballButton);
+    fireEvent.click(strikeButton);
+    fireEvent.click(foulButton);
+    fireEvent.click(button);
+
+    const selectedBalls = getByTestId("Balls");
+    const selectedStrikes = getByTestId("Strikes");
+    const selectedFouls = getByTestId("Fouls");
+
+    expect(selectedBalls).toHaveTextContent(/0 Balls/i);
+    expect(selectedStrikes).toHaveTextContent(/0 Strikes/i);
+    expect(selectedFouls).toHaveTextContent(/0 Fouls/i);
+  });
 });
