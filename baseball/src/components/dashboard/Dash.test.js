@@ -1,0 +1,36 @@
+import React from "react";
+import { render, cleanup } from "@testing-library/react";
+import "jest-dom/extend-expect";
+import Dash from "./Dash";
+
+afterEach(cleanup);
+
+it("renders without crashing", () => {
+  render(<Dash />);
+});
+
+describe("The Dash component", () => {
+  it("contains a strike button", () => {
+    const component = render(<Dash />);
+    const button = component.getByTestId("Strike");
+    expect(button).toHaveTextContent(/Strike/i);
+  });
+
+  it("contains a foul button", () => {
+    const component = render(<Dash />);
+    const button = component.getByTestId("Foul");
+    expect(button).toHaveTextContent(/Foul/i);
+  });
+
+  it("contains a hit button", () => {
+    const component = render(<Dash />);
+    const button = component.getByTestId("Hit");
+    expect(button).toHaveTextContent(/Hit/i);
+  });
+
+  it("contains a ball button", () => {
+    const component = render(<Dash />);
+    const button = component.getByTestId("Ball");
+    expect(button).toHaveTextContent(/Ball/i);
+  });
+});
